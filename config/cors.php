@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'paths' => ['graphql', 'sanctum/csrf-cookie', 'api/*'],
+    'paths' => ['graphql', 'graphql/*', 'sanctum/csrf-cookie', 'api/*'],
 
     'allowed_methods' => ['*'],
 
