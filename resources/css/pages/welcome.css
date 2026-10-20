@@ -1,0 +1,209 @@
+.welcome-page {
+    --welcome-forest: #173126;
+    --welcome-cream: #f7f3eb;
+    --welcome-sand: #d9cdb8;
+    --welcome-terracotta: #c86843;
+
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0;
+    background:
+        radial-gradient(ellipse at 82% 12%, rgb(200 104 67 / 9%), transparent 32rem),
+        var(--welcome-cream);
+    color: var(--welcome-forest);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+}
+
+.welcome-header,
+.welcome-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.5rem clamp(1.25rem, 6vw, 5rem);
+}
+
+.welcome-header {
+    border-bottom: 1px solid rgb(23 49 38 / 10%);
+}
+
+.brand-link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    color: inherit;
+    text-decoration: none;
+}
+
+.brand-mark {
+    font-family: Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+}
+
+.brand-caption,
+.service-status,
+.welcome-eyebrow,
+.service-link__path,
+.welcome-footer {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+}
+
+.brand-caption,
+.welcome-footer {
+    color: rgb(23 49 38 / 65%);
+}
+
+.service-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    letter-spacing: 0.02em;
+}
+
+.service-status__indicator {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: #4f8c5d;
+    box-shadow: 0 0 0 0.25rem rgb(79 140 93 / 14%);
+}
+
+.welcome-main {
+    display: grid;
+    flex: 1;
+    place-items: center;
+    padding: 5rem 1.25rem;
+}
+
+.welcome-hero {
+    width: min(100%, 52rem);
+}
+
+.welcome-eyebrow {
+    margin: 0 0 1.25rem;
+    color: var(--welcome-terracotta);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.welcome-hero h1 {
+    max-width: 12ch;
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 700;
+    letter-spacing: -0.055em;
+    line-height: 0.98;
+}
+
+.welcome-description {
+    max-width: 38rem;
+    margin: 1.5rem 0 2.5rem;
+    color: rgb(23 49 38 / 75%);
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.7;
+}
+
+.service-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.service-link {
+    display: flex;
+    min-height: 5.5rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid rgb(23 49 38 / 15%);
+    border-radius: 0.75rem;
+    background: rgb(253 251 247 / 75%);
+    color: inherit;
+    text-decoration: none;
+    transition:
+        border-color 160ms ease,
+        box-shadow 160ms ease,
+        transform 160ms ease;
+}
+
+.service-link:hover {
+    transform: translateY(-2px);
+    border-color: var(--welcome-terracotta);
+    box-shadow: 0 0.75rem 2rem rgb(23 49 38 / 8%);
+}
+
+.service-link:focus-visible {
+    outline: 3px solid var(--welcome-terracotta);
+    outline-offset: 3px;
+}
+
+.service-link__title,
+.service-link__path {
+    display: block;
+}
+
+.service-link__title {
+    font-family: Georgia, serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.service-link__path {
+    margin-top: 0.4rem;
+    color: rgb(23 49 38 / 60%);
+    letter-spacing: 0.02em;
+}
+
+.service-link__arrow {
+    color: var(--welcome-terracotta);
+    font-size: 1.25rem;
+}
+
+.welcome-note {
+    margin: 1.5rem 0 0;
+    color: rgb(23 49 38 / 65%);
+    font-size: 0.875rem;
+}
+
+.welcome-footer {
+    border-top: 1px solid rgb(23 49 38 / 10%);
+    letter-spacing: 0.02em;
+}
+
+@media (max-width: 40rem) {
+    .welcome-header,
+    .welcome-footer {
+        align-items: flex-start;
+    }
+
+    .brand-link {
+        flex-direction: column;
+        gap: 0.15rem;
+    }
+
+    .brand-caption {
+        font-size: 0.65rem;
+    }
+
+    .service-links {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-footer {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .service-link {
+        transition: none;
+    }
+}

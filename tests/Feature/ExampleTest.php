@@ -14,6 +14,11 @@ class ExampleTest extends TestCase
     {
         $response = $this->get('/');
 
-        $response->assertStatus(200);
+        $response
+            ->assertOk()
+            ->assertSee('SOLIS | Specialty Coffee API')
+            ->assertSee('Good coffee begins with good connections.')
+            ->assertSee('/graphql')
+            ->assertSee('/graphiql');
     }
 }
