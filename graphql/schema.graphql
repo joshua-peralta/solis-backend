@@ -1,0 +1,54 @@
+type Query {
+    "Fetch all products with optional filters and sorting"
+    products(
+        roast: String @scope
+        process: String @scope
+        is_featured: Boolean @eq
+        orderBy: _ @orderBy(columns: ["id", "created_at", "name"])
+    ): [Product!]! @all
+
+    "Fetch a single product by slug"
+    product(slug: String! @eq): Product @find
+
+    "Fetch product categories"
+    categories: [Category!]! @all
+}
+
+type Category {
+    id: ID!
+    name: String!
+    slug: String!
+    description: String
+    products: [Product!]! @hasMany
+}
+
+type Product {
+    id: ID!
+    name: String!
+    slug: String!
+    description: String!
+    origin: String
+    process_type: String!
+    flavor_profile: String
+    roaster_notes: String
+    is_featured: Boolean!
+    category: Category! @belongsTo
+    variants: [ProductVariant!]! @hasMany
+    images: [ProductImage!]! @hasMany
+}
+
+type ProductVariant {
+    id: ID!
+    sku: String!
+    roast_level: String!
+    grind_size: String!
+    price_cents: Int!
+    stock: Int!
+}
+
+type ProductImage {
+    id: ID!
+    url: String!
+    is_primary: Boolean!
+    sort_order: Int!
+}
